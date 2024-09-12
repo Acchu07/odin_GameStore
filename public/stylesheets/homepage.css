@@ -1,0 +1,45 @@
+@font-face {
+    font-family: P;
+    src: url('../fonts/ProtestGuerrilla-Regular.ttf') format('truetype');
+}
+
+body{
+    font-family: P,Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(71, 70, 70);
+    color: rgb(255, 255, 254);
+}
+
+nav ul li:last-child{
+    display: none;
+}
+
+ul{
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 50vw;
+}
+
+li{
+    list-style: circle;
+    margin: 0px 10px;
+    padding: 0px 10px;
+}
+
+li:hover, a:hover{
+    list-style-type: square;
+    color: rgb(241, 199, 121);
+}
+
+li a{
+    color: rgb(235, 218, 188);
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+}

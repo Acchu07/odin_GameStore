@@ -3,8 +3,7 @@ import { testDbWorking } from "../db/dbAccess.js"
 
 
 async function indexPageFunction(req,res){
-    res.render('index',{title:'Index Page'})
-    console.log(await testDbWorking('Lena Foster'))
+    res.render('homepage',{title:'Game Inventory', message:'Welcome to the Store'})
 }
 
 export {indexPageFunction}
