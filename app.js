@@ -8,6 +8,14 @@ const app = express()
 
 app.set('view engine', 'ejs');
 app.use(express.static('public/stylesheets'));
+app.use('/fonts', express.static('public/fonts', {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.ttf')) {
+            res.setHeader('Content-Type', 'font/ttf');
+        }
+    }
+})); // add to NMI topic of odin project
+
 app.listen(process.env.PORT,()=> console.log('Server Running'))
 
 app.use('/', indexRouter)

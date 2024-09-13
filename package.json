@@ -9,6 +9,7 @@
     "pg": "^8.12.0"
   },
   "scripts": {
-    "start": "node --watch app.js"
+    "start": "node --watch app.js",
+    "dbpop": "db/populateDB.js"
   }
 }
