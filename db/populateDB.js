@@ -6,20 +6,22 @@ const { Client } = pkg;
 const tableGames = `
 CREATE TABLE IF NOT EXISTS game (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  columnGame TEXT
+  columnGame TEXT UNIQUE,
+  imageurl TEXT,
+  steamurl TEXT UNIQUE
 );
 
-INSERT INTO game (columnGame) 
+INSERT INTO game (columnGame,imageurl,steamurl) 
 VALUES
-  ('My Time At Portia'),
-  ('Baldur''s Gate III'),
-  ('Dota 2');
+  ('My Time At Portia','/images/MTAP.jpg','/666140/My_Time_at_Portia/'),
+  ('Baldur''s Gate III','/images/BG3.jpeg','/1086940/Baldurs_Gate_3/'),
+  ('Dota 2','/images/dota2.jpg','/570/Dota_2/');
 `;
 
 const tableDevelopers = `
 CREATE TABLE IF NOT EXISTS developer (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  columnDeveloper TEXT
+  columnDeveloper TEXT UNIQUE
 );
 
 INSERT INTO developer (columnDeveloper) 
@@ -37,16 +39,13 @@ CREATE TABLE IF NOT EXISTS gamedeveloper (
   FOREIGN KEY (idGame) REFERENCES game(id) ON DELETE CASCADE,
   FOREIGN KEY (idDeveloper) REFERENCES developer(id) ON DELETE CASCADE
 );
-`
 
-const figureInsertIntoTable = `
 INSERT INTO gamedeveloper (idGame,idDeveloper)
 VALUES
 (1,3),
 (2,1),
 (3,2);
 `
-
 const dropAllTables = `
 DROP TABLE gamedeveloper;
 DROP TABLE game;
@@ -62,7 +61,6 @@ async function main(param) {
         await client.query(tableGames);
         await client.query(tableDevelopers);
         await client.query(tableGameDeveloper);
-        await client.query(figureInsertIntoTable);
     }
     else{
         await client.query(dropAllTables)
