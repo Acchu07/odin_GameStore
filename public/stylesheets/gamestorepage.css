@@ -9,7 +9,7 @@ body{
     color: rgb(255, 255, 254);
     display: grid;
     min-height: 100vh;
-    grid-template-rows: .5fr .5fr 9fr .5fr;
+    grid-template-rows: .5fr .5fr 3fr .5fr;
     gap: 5px;
 }
 
@@ -63,3 +63,12 @@ li:hover, a:hover{
 li a{
     color: rgb(235, 218, 188);
 }
+
+/* body div:last-of-type{
+    font-family: inherit;
+    font-style: italic;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

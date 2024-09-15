@@ -61,9 +61,9 @@ async function main(param) {
     });
     await client.connect();
     if (param) {
-        await client.query(tableGames);
-        await client.query(tableDevelopers);
-        await client.query(tableGameDeveloper);
+        // await client.query(tableGames);
+        // await client.query(tableDevelopers);
+        // await client.query(tableGameDeveloper);
     }
     else{
         await client.query(dropAllTables)

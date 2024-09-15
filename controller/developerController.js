@@ -3,7 +3,7 @@ import { validationResult } from "express-validator";
 
 export async function DeveloperIndexFunction(req,res){
     const developerList = await retrieveDeveloperList();
-    res.render('gameStorePage',{title:'Developer Page',games:developerList})
+    res.render('gameStorePage',{title:'Developer Catalogue',games:developerList})
 }
 
 export async function developerGames(req,res){
