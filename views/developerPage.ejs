@@ -11,9 +11,9 @@
     <%- include('partials/navbar')-%>
     <div class="gridContainer">
     <% games.forEach((game)=>{ %>
-        <form action="/<%= game.columngame ? 'game' : 'developer' %>/<%=game.id%>" method="get">
+        <form action="/game/<%=game.id%>" method="get">
             <div class="card" style="background-image: url('<%=game.imageurl%>');">
-                <button type="submit"><h1><%=game.columngame || game.columndeveloper%></h1></button>
+                <button type="submit"><h1><%=game.columngame%></h1></button>
             </div>
         </form>
     <%})%>

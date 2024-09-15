@@ -19,6 +19,7 @@ app.use('/developer',developerRouter)
 
 
 app.use((err, req, res, next) => {
+    res.send('NO SUCH PAGE EXISTS');
     console.error(err);
 });
 

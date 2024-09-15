@@ -15,20 +15,22 @@ INSERT INTO game (columnGame,imageurl,steamurl)
 VALUES
   ('My Time At Portia','/images/MTAP.jpg','/666140/My_Time_at_Portia/'),
   ('Baldur''s Gate III','/images/BG3.jpeg','/1086940/Baldurs_Gate_3/'),
-  ('Dota 2','/images/dota2.jpg','/570/Dota_2/');
+  ('Dota 2','/images/dota2.jpg','/570/Dota_2/'),
+  ('CSGO','/images/placeholder.jpeg','/730/CounterStrike_2/');
 `;
 
 const tableDevelopers = `
 CREATE TABLE IF NOT EXISTS developer (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  columnDeveloper TEXT UNIQUE
+  columnDeveloper TEXT UNIQUE,
+  imageurl TEXT
 );
 
-INSERT INTO developer (columnDeveloper) 
+INSERT INTO developer (columnDeveloper,imageurl) 
 VALUES
-  ('Larian'),
-  ('Valve'),
-  ('Pathea');
+  ('Larian','/images/placeholder.jpeg'),
+  ('Valve','/images/placeholder.jpeg'),
+  ('Pathea','/images/placeholder.jpeg');
 `;
 
 const tableGameDeveloper = `
@@ -44,7 +46,8 @@ INSERT INTO gamedeveloper (idGame,idDeveloper)
 VALUES
 (1,3),
 (2,1),
-(3,2);
+(3,2),
+(4,2);
 `
 const dropAllTables = `
 DROP TABLE gamedeveloper;

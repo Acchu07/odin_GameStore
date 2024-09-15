@@ -3,6 +3,7 @@
     src: url('../fonts/Games-XvD2.ttf') format('truetype');
 }
 
+
 body{
     font-family: P,Arial, Helvetica, sans-serif;
     background-color: rgb(71, 70, 70);
@@ -12,25 +13,14 @@ body{
     grid-template-rows: .5fr .5fr 9fr .5fr;
     gap: 5px;
 }
-
-
-.gridContainer{
-    display: grid;
-    grid-template-columns: repeat(7,1fr);
-    grid-template-rows: repeat(3,1fr);
-    gap: 1vw;
-}
-
 .card{
     background-color: rgb(61, 61, 61);
     border: 5px solid rgba(44, 44, 44, 0.514);
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     background-size: cover;
     background-position: center;
-    width: 300px;
-    height: 200px;
 }
 
 img{

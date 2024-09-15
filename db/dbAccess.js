@@ -10,13 +10,15 @@ async function retrieveGamesList(){
 
 async function retrieveGameInformation(gameID){
     const query = {
-        text: `SELECT developer.columndeveloper, game.* FROM developer 
+        text: `SELECT game.*,developer.columndeveloper FROM developer 
         INNER JOIN gamedeveloper ON developer.id = gamedeveloper.iddeveloper
         INNER JOIN game ON gamedeveloper.idgame = game.id
         WHERE gamedeveloper.idgame = $1`,
-        value:[gameID]
+        values:[gameID]
     }
-    const {rows} = await poolOne.query(query)
+    const {rows} = await poolOne.query(query);
+    return rows[0];
 }
+
 
 export{retrieveGamesList,retrieveGameInformation}

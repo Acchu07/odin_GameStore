@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= gameInformation.columngame%></title>
+    <link rel="stylesheet" href="/stylesheets/individualgamepage.css">
+</head>
+<body>
+    <%- include('partials/header',{title: gameInformation.columngame})-%>
+    <%- include('partials/navbar')-%>
+    <div class="card" style="background-image: url('<%=gameInformation.imageurl%>');">
+        <h1><a href="https://store.steampowered.com/app<%= gameInformation.steamurl %>"><%=gameInformation.columngame%> on Steam Store</a></h1>
+    </div>
+    <%- include('partials/footer')-%>
+</body>
+</html>

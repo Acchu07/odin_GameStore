@@ -1,4 +1,4 @@
-import { retrieveGamesList } from "../db/dbAccess.js"
+import { retrieveGameInformation, retrieveGamesList } from "../db/dbAccess.js"
 import { validationResult } from 'express-validator';
 
 export async function gameIndexFunction(req,res){
@@ -7,8 +7,13 @@ export async function gameIndexFunction(req,res){
 }
 
 export async function getParticularGameInfo(req,res){
-    console.log('entering')
-    console.log(req.params);
     const result = validationResult(req);
-    console.log(result);
+    if(!result.isEmpty()){
+        const error = new Error('Validation failed for getParticularGameInfo ' + req.url);
+        error.statusCode = 400;
+        error.validationErrors = result.array();
+        throw error;
+    }
+    const gameInformation = await retrieveGameInformation(req.params.gameID)
+    res.render('individualGamepage',{gameInformation});
 }
