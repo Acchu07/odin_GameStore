@@ -49,10 +49,31 @@ VALUES
 (3,2),
 (4,2);
 `
+const Genre = `
+CREATE TABLE IF NOT EXISTS category(
+id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+genre TEXT UNIQUE)
+
+INSERT INTO category (genre) 
+VALUES
+(ACTION),
+(ADVENTURE),
+(RPG),
+(SIMULATION),
+(OPEN WORLD))`
+
+const tableGameGenre = `
+CREATE TABLE IF NOT EXISTS gamegenre(
+idGame INT,
+IdGenre INT,
+PRIMARY KEY()
+)`
+
 const dropAllTables = `
 DROP TABLE gamedeveloper;
 DROP TABLE game;
 DROP TABLE developer;`
+
 
 async function main(param) {
     console.log("seeding...");
@@ -61,9 +82,9 @@ async function main(param) {
     });
     await client.connect();
     if (param) {
-        // await client.query(tableGames);
-        // await client.query(tableDevelopers);
-        // await client.query(tableGameDeveloper);
+        await client.query(tableGames);
+        await client.query(tableDevelopers);
+        await client.query(tableGameDeveloper);
     }
     else{
         await client.query(dropAllTables)

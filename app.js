@@ -3,9 +3,9 @@ import express from 'express'
 import { indexRouter } from './routes/indexRoute.js';
 import { gameRouter } from './routes/gameRoute.js';
 import { developerRouter } from './routes/developerRoute.js';
-import { addtodatabase } from './routes/addtoDBRoute.js';
 
 const app = express()
+
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -16,7 +16,7 @@ app.listen(process.env.PORT,()=> console.log('Server Running'))
 app.use('/', indexRouter)
 app.use('/game',gameRouter)
 app.use('/developer',developerRouter)
-app.use('/addToDB',addtodatabase);
+
 // Ignore building genre for now figure that out last
 
 
